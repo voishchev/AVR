@@ -8,7 +8,9 @@
 
 int main(void)
 {
-    /* insert your hardware initialization here */
+	//commit from windows
+    DDRC = 0b0000001;
+	PORTC = 0b0000001;
     for(;;){
         /* insert your main loop code here */
     }
