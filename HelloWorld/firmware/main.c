@@ -1,18 +1,27 @@
 /* Name: main.c
- * Author: <insert your name here>
- * Copyright: <insert your copyright message here>
- * License: <insert your license reference here>
+ * svoische 04.08.23
+ * ATmega8 16U trial
+ * Config: XCode in MacOS, AVRdude, USBasp
+ * Atmel Studio compatibility:
+ * Proteus sim under Winery:
+ * Proteus sim in Windows:
  */
 
 #include <avr/io.h>
+#include <util/delay.h>
+
+#define F_CPU 1000000UL
 
 int main(void)
 {
-	//commit from windows
-    DDRC = 0b0000001;
-	PORTC = 0b0000001;
-    for(;;){
-        /* insert your main loop code here */
+	//first commit from windows: succeed
+    DDRC =  0b0100000; //PC5: output
+
+    while (1) {
+        PORTC = 0b0100000;
+        _delay_ms(500);
+        PORTC = 0b0000000;
+        _delay_ms(500);
     }
     return 0;   /* never reached */
 }
